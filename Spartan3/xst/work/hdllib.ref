@@ -1,0 +1,16 @@
+AR top_level behavioral C:/MidiSynth/top_level.vhd sub00/vhpl15 1445453244
+PH utils NULL C:/MidiSynth/utils.vhd sub00/vhpl01 1445453231
+AR sync_fifo behavioral C:/MidiSynth/sync_fifo.vhd sub00/vhpl03 1445453234
+AR top_level behavior C:/MidiSynth/top_level.vhd sub00/vhpl13 1445451050
+EN midi_decoder NULL C:/MidiSynth/midi_decoder.vhd sub00/vhpl06 1445453237
+AR test_osc behavioral C:/MidiSynth/test_osc.vhd sub00/vhpl09 1445453240
+EN i2s_cntrl NULL C:/MidiSynth/I2S_cntrl.vhd sub00/vhpl11 1445453241
+AR top_level rtl C:/MidiSynth/top_level.vhd sub00/vhpl14 1445452965
+EN sync_fifo NULL C:/MidiSynth/sync_fifo.vhd sub00/vhpl00 1445453233
+AR uart behavioral C:/MidiSynth/uart.vhd sub00/vhpl05 1445453236
+PB utils utils C:/MidiSynth/utils.vhd sub00/vhpl02 1445453232
+EN test_osc NULL C:/MidiSynth/test_osc.vhd sub00/vhpl08 1445453239
+EN uart NULL C:/MidiSynth/uart.vhd sub00/vhpl04 1445453235
+AR i2s_cntrl behavioral C:/MidiSynth/I2S_cntrl.vhd sub00/vhpl12 1445453242
+EN top_level NULL C:/MidiSynth/top_level.vhd sub00/vhpl10 1445453243
+AR midi_decoder behavioral C:/MidiSynth/midi_decoder.vhd sub00/vhpl07 1445453238

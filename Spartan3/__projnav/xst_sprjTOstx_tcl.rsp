@@ -1,0 +1,1 @@
+set allSynthModules {utils.MOD sync_fifo.MOD uart.MOD midi_decoder.MOD test_osc.MOD top_level.MOD}

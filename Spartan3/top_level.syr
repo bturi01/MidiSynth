@@ -1,0 +1,807 @@
+Release 7.1i - xst H.38
+Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to __projnav
+CPU : 0.00 / 1.47 s | Elapsed : 0.00 / 1.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 1.47 s | Elapsed : 0.00 / 1.00 s
+ 
+--> Reading design: top_level.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) HDL Analysis
+  4) HDL Synthesis
+  5) Advanced HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Final Report
+     7.1) Device utilization summary
+     7.2) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top_level.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top_level"
+Output Format                      : NGC
+Target Device                      : xc3s200-4-ft256
+
+---- Source Options
+Top Module Name                    : top_level
+Automatic FSM Extraction           : NO
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+Resource Sharing                   : YES
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Equivalent register Removal        : YES
+Slice Packing                      : YES
+Pack IO Registers into IOBs        : auto
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : NO
+Global Optimization                : AllClockNets
+RTL Output                         : Yes
+Write Timing Constraints           : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+lso                                : top_level.lso
+Read Cores                         : YES
+cross_clock_analysis               : NO
+verilog2001                        : YES
+Optimize Instantiated Primitives   : NO
+use_clock_enable                   : Yes
+use_sync_set                       : Yes
+use_sync_reset                     : Yes
+enable_auto_floorplanning          : No
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/MidiSynth/utils.vhd" in Library work.
+Architecture utils of Entity utils is up to date.
+Compiling vhdl file "C:/MidiSynth/sync_fifo.vhd" in Library work.
+Architecture behavioral of Entity sync_fifo is up to date.
+Compiling vhdl file "C:/MidiSynth/uart.vhd" in Library work.
+Architecture behavioral of Entity uart is up to date.
+Compiling vhdl file "C:/MidiSynth/midi_decoder.vhd" in Library work.
+Architecture behavioral of Entity midi_decoder is up to date.
+Compiling vhdl file "C:/MidiSynth/test_osc.vhd" in Library work.
+Architecture behavioral of Entity test_osc is up to date.
+Compiling vhdl file "C:/MidiSynth/I2S_cntrl.vhd" in Library work.
+Architecture behavioral of Entity i2s_cntrl is up to date.
+Compiling vhdl file "C:/MidiSynth/top_level.vhd" in Library work.
+Architecture behavioral of Entity top_level is up to date.
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <top_level> (Architecture <behavioral>).
+Entity <top_level> analyzed. Unit <top_level> generated.
+
+Analyzing generic Entity <uart> (Architecture <behavioral>).
+	tx_fifo_depth = 32
+	rx_fifo_depth = 32
+Entity <uart> analyzed. Unit <uart> generated.
+
+Analyzing generic Entity <sync_fifo> (Architecture <behavioral>).
+	data_width = 8
+	data_depth = 32
+    Set property "ram_style = block" for signal <ram>.
+Entity <sync_fifo> analyzed. Unit <sync_fifo> generated.
+
+Analyzing Entity <midi_decoder> (Architecture <behavioral>).
+INFO:Xst:1304 - Contents of register <param_val_d<15>> in unit <midi_decoder> never changes during circuit operation. The register is replaced by logic.
+INFO:Xst:1304 - Contents of register <param_val_d<14>> in unit <midi_decoder> never changes during circuit operation. The register is replaced by logic.
+Entity <midi_decoder> analyzed. Unit <midi_decoder> generated.
+
+Analyzing Entity <test_osc> (Architecture <behavioral>).
+Entity <test_osc> analyzed. Unit <test_osc> generated.
+
+Analyzing generic Entity <I2S_cntrl> (Architecture <behavioral>).
+	samp_width = 16
+	mclk_accum_inc = 16106
+	lrck_div = 256
+INFO:Xst:1432 - Contents of array <ldin_d> may be accessed with a negative index, causing simulation mismatch.
+INFO:Xst:1433 - Contents of array <ldin_d> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+INFO:Xst:1432 - Contents of array <rdin_d> may be accessed with a negative index, causing simulation mismatch.
+INFO:Xst:1433 - Contents of array <rdin_d> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+INFO:Xst:1304 - Contents of register <sclk_d> in unit <I2S_cntrl> never changes during circuit operation. The register is replaced by logic.
+Entity <I2S_cntrl> analyzed. Unit <I2S_cntrl> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <sync_fifo>.
+    Related source file is "C:/MidiSynth/sync_fifo.vhd".
+    Found 32x8-bit dual-port distributed RAM for signal <ram>.
+    -----------------------------------------------------------------------
+    | aspect ratio       | 32-word x 8-bit                     |          |
+    | clock              | connected to signal <clk>           | rise     |
+    | write enable       | connected to internal node          | high     |
+    | address            | connected to signal <wr_ptr>        |          |
+    | dual address       | connected to signal <rd_ptr>        |          |
+    | data in            | connected to internal node          |          |
+    | data out           | connected to internal node          |          |
+    | dual data out      | connected to signal <dout>          |          |
+    | ram_style          | block                               |          |
+    -----------------------------------------------------------------------
+WARNING:Xst:1440 - Cannot use block RAM resources. Please check that the RAM contents is read synchronously.
+WARNING:Xst:736 - Found 8-bit latch for signal <$n0010> created at "C:/MidiSynth/sync_fifo.vhd" line 95.
+    Found 1-bit 8-to-1 multiplexer for signal <$n0014>.
+    Found 5-bit adder carry out for signal <$n0019> created at line 28.
+    Found 5-bit adder carry out for signal <$n0020> created at line 28.
+    Found 6-bit comparator equal for signal <$n0031> created at line 46.
+    Found 6-bit comparator equal for signal <$n0033> created at line 35.
+    Found 6-bit comparator equal for signal <$n0034> created at line 35.
+    Found 1-bit register for signal <ef_d>.
+    Found 1-bit register for signal <ff_d>.
+    Found 5-bit register for signal <rd_ptr>.
+    Found 5-bit register for signal <wr_ptr>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  12 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   3 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <sync_fifo> synthesized.
+
+
+Synthesizing Unit <I2S_cntrl>.
+    Related source file is "C:/MidiSynth/I2S_cntrl.vhd".
+WARNING:Xst:646 - Signal <sclk_d> is assigned but never used.
+    Found 1-bit register for signal <sdout>.
+    Found 1-bit register for signal <sclk>.
+    Found 1-bit register for signal <mclk>.
+    Found 1-bit register for signal <lrck>.
+    Found 5-bit subtractor for signal <$n0007> created at line 176.
+    Found 1-bit 16-to-1 multiplexer for signal <$n0008> created at line 164.
+    Found 1-bit 16-to-1 multiplexer for signal <$n0009> created at line 166.
+    Found 1-bit 4-to-1 multiplexer for signal <$n0013>.
+    Found 16-bit comparator less for signal <$n0016> created at line 120.
+    Found 9-bit comparator greater for signal <$n0026> created at line 129.
+    Found 6-bit comparator less for signal <$n0027> created at line 174.
+    Found 9-bit comparator greater for signal <$n0028> created at line 155.
+    Found 9-bit comparator lessequal for signal <$n0029> created at line 155.
+    Found 16-bit comparator greatequal for signal <$n0031> created at line 120.
+    Found 6-bit comparator greatequal for signal <$n0032> created at line 174.
+    Found 9-bit comparator lessequal for signal <$n0033> created at line 129.
+    Found 6-bit comparator less for signal <$n0034> created at line 162.
+    Found 6-bit comparator greater for signal <$n0035> created at line 162.
+    Found 6-bit register for signal <bit_cntr>.
+    Found 16-bit register for signal <ldin_d>.
+    Found 9-bit up counter for signal <lrck_accum>.
+    Found 1-bit register for signal <lrck_d>.
+    Found 16-bit up accumulator for signal <mclk_accum>.
+    Found 16-bit register for signal <mclk_accum_d>.
+    Found 1-bit register for signal <mclk_d>.
+    Found 16-bit register for signal <rdin_d>.
+    Found 9-bit up counter for signal <sclk_accum>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   1 Accumulator(s).
+	inferred  60 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  10 Comparator(s).
+	inferred   3 Multiplexer(s).
+Unit <I2S_cntrl> synthesized.
+
+
+Synthesizing Unit <test_osc>.
+    Related source file is "C:/MidiSynth/test_osc.vhd".
+WARNING:Xst:647 - Input <param_val<15:14>> is never used.
+WARNING:Xst:1781 - Signal <fcwlut> is used but never assigned. Tied to default value.
+WARNING:Xst:646 - Signal <note_vel> is assigned but never used.
+    Found 128x16-bit ROM for signal <$n0002> created at line 98.
+    Found 16-bit register for signal <dout>.
+    Found 7-bit comparator equal for signal <$n0007> created at line 87.
+    Found 1-bit register for signal <en>.
+    Found 16-bit register for signal <fcw>.
+    Found 7-bit register for signal <note_val>.
+    Found 16-bit up accumulator for signal <phase>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Accumulator(s).
+	inferred  24 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <test_osc> synthesized.
+
+
+Synthesizing Unit <midi_decoder>.
+    Related source file is "C:/MidiSynth/midi_decoder.vhd".
+WARNING:Xst:646 - Signal <wr_d> is assigned but never used.
+    Register <param_cmd_d<4>> equivalent to <param_cmd_d<3>> has been removed
+    Register <param_cmd_d<5>> equivalent to <param_cmd_d<3>> has been removed
+    Register <param_cmd_d<6>> equivalent to <param_cmd_d<3>> has been removed
+    Register <param_cmd_d<7>> equivalent to <param_cmd_d<3>> has been removed
+    Using one-hot encoding for signal <recv_state>.
+    Using one-hot encoding for signal <byte_cnt>.
+    Found 8-bit register for signal <param_cmd>.
+    Found 16-bit register for signal <param_val>.
+    Found 3-bit register for signal <byte_cnt>.
+    Found 1-bit register for signal <midiclk_d>.
+    Found 4-bit register for signal <param_cmd_d<3:0>>.
+    Found 14-bit register for signal <param_val_d<13:0>>.
+    Found 3-bit register for signal <recv_state>.
+    Summary:
+	inferred  49 D-type flip-flop(s).
+Unit <midi_decoder> synthesized.
+
+
+Synthesizing Unit <uart>.
+    Related source file is "C:/MidiSynth/uart.vhd".
+    Using one-hot encoding for signal <rx_state>.
+    Using one-hot encoding for signal <tx_state>.
+    Found 1-bit register for signal <tx>.
+    Found 16-bit comparator greater for signal <$n0037> created at line 112.
+    Found 4-bit adder for signal <$n0040> created at line 190.
+    Found 3-bit adder for signal <$n0041> created at line 230.
+    Found 3-bit adder for signal <$n0042> created at line 158.
+    Found 3-bit adder for signal <$n0043> created at line 214.
+    Found 16-bit comparator lessequal for signal <$n0046> created at line 112.
+    Found 4-bit comparator greater for signal <$n0048> created at line 212.
+    Found 4-bit comparator less for signal <$n0049> created at line 212.
+    Found 3-bit comparator greatequal for signal <$n0051> created at line 221.
+    Found 16-bit up accumulator for signal <rx_accum>.
+    Found 16-bit register for signal <rx_accum_d>.
+    Found 3-bit register for signal <rx_bit>.
+    Found 1-bit register for signal <rx_ce>.
+    Found 4-bit register for signal <rx_cntr>.
+    Found 8-bit register for signal <rx_data>.
+    Found 3-bit register for signal <rx_state>.
+    Found 3-bit register for signal <rx_sum>.
+    Found 1-bit register for signal <rx_wr>.
+    Found 4-bit up counter for signal <tx_accum>.
+    Found 3-bit register for signal <tx_bit>.
+    Found 1-bit register for signal <tx_ce>.
+    Found 8-bit register for signal <tx_data>.
+    Found 1-bit register for signal <tx_rd>.
+    Found 4-bit register for signal <tx_state>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 Accumulator(s).
+	inferred  50 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   5 Comparator(s).
+Unit <uart> synthesized.
+
+
+Synthesizing Unit <top_level>.
+    Related source file is "C:/MidiSynth/top_level.vhd".
+WARNING:Xst:1306 - Output <disp> is never assigned.
+WARNING:Xst:647 - Input <btn<3:1>> is never used.
+WARNING:Xst:1306 - Output <vga> is never assigned.
+WARNING:Xst:647 - Input <rx> is never used.
+WARNING:Xst:647 - Input <sw> is never used.
+WARNING:Xst:653 - Signal <uart_din> is used but never assigned. Tied to value 00000000.
+WARNING:Xst:1780 - Signal <uart_reset> is never used or assigned.
+WARNING:Xst:646 - Signal <uart_ff> is assigned but never used.
+WARNING:Xst:653 - Signal <uart_wr> is used but never assigned. Tied to value 0.
+Unit <top_level> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Advanced RAM inference ...
+INFO:Xst:1647 - Data output of ROM <Mrom__n0002> in block <test_osc> is tied to register <fcw> in block <test_osc>.
+INFO:Xst:1650 - The register is removed and the ROM is implemented as read-only block RAM.
+Advanced multiplier inference ...
+Advanced Registered AddSub inference ...
+Dynamic shift register inference ...
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Block RAMs                       : 1
+ 128x16-bit single-port block RAM  : 1
+# LUT RAMs                         : 2
+ 32x8-bit dual-port distributed RAM: 2
+# Adders/Subtractors               : 9
+ 3-bit adder                       : 3
+ 4-bit adder                       : 1
+ 5-bit adder carry out             : 4
+ 5-bit subtractor                  : 1
+# Counters                         : 3
+ 4-bit up counter                  : 1
+ 9-bit up counter                  : 2
+# Accumulators                     : 3
+ 16-bit up accumulator             : 3
+# Registers                        : 65
+ 1-bit register                    : 43
+ 16-bit register                   : 6
+ 3-bit register                    : 6
+ 4-bit register                    : 2
+ 5-bit register                    : 4
+ 6-bit register                    : 1
+ 7-bit register                    : 1
+ 8-bit register                    : 2
+# Latches                          : 2
+ 8-bit latch                       : 2
+# Comparators                      : 22
+ 16-bit comparator greatequal      : 1
+ 16-bit comparator greater         : 1
+ 16-bit comparator less            : 1
+ 16-bit comparator lessequal       : 1
+ 3-bit comparator greatequal       : 1
+ 4-bit comparator greater          : 1
+ 4-bit comparator less             : 1
+ 6-bit comparator equal            : 6
+ 6-bit comparator greatequal       : 1
+ 6-bit comparator greater          : 1
+ 6-bit comparator less             : 2
+ 7-bit comparator equal            : 1
+ 9-bit comparator greater          : 2
+ 9-bit comparator lessequal        : 2
+# Multiplexers                     : 5
+ 1-bit 16-to-1 multiplexer         : 2
+ 1-bit 4-to-1 multiplexer          : 1
+ 1-bit 8-to-1 multiplexer          : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch  <param_val_15> (without init value) has a constant value of 0 in block <midi_decoder>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <midiclk_d> has a constant value of 0 in block <midi_decoder>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <param_val_14> (without init value) has a constant value of 0 in block <midi_decoder>.
+WARNING:Xst:1291 - FF/Latch <byte_cnt_0> is unconnected in block <midi_decoder>.
+WARNING:Xst:1291 - FF/Latch <param_val_d_9> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_8> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_9> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_7> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_11> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_13> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_d_10> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_d_11> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_d_7> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_d_12> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_d_8> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_d_13> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_10> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1291 - FF/Latch <param_val_12> is unconnected in block <midi_decoder1>.
+WARNING:Xst:1988 - Unit <I2S_cntrl>: instances <Mcompar__n0033>, <Mcompar__n0026> of unit <LPM_COMPARE_9> and unit <LPM_COMPARE_3> are dual, second instance is removed
+WARNING:Xst:1988 - Unit <I2S_cntrl>: instances <Mcompar__n0032>, <Mcompar__n0027> of unit <LPM_COMPARE_8> and unit <LPM_COMPARE_4> are dual, second instance is removed
+WARNING:Xst:1988 - Unit <I2S_cntrl>: instances <Mcompar__n0031>, <Mcompar__n0016> of unit <LPM_COMPARE_7> and unit <LPM_COMPARE_2> are dual, second instance is removed
+WARNING:Xst:1988 - Unit <I2S_cntrl>: instances <Mcompar__n0029>, <Mcompar__n0028> of unit <LPM_COMPARE_6> and unit <LPM_COMPARE_5> are dual, second instance is removed
+WARNING:Xst:1989 - Unit <sync_fifo>: instances <Mcompar__n0034>, <Mcompar__n0033> of unit <LPM_COMPARE_1> are equivalent, second instance is removed
+WARNING:Xst:1988 - Unit <uart>: instances <Mcompar__n0037>, <Mcompar__n0046> of unit <LPM_COMPARE_13> and unit <LPM_COMPARE_14> are dual, second instance is removed
+Register <ldin_d_14> equivalent to <rdin_d_14> has been removed
+Register <ldin_d_15> equivalent to <rdin_d_15> has been removed
+Register <ldin_d_13> equivalent to <rdin_d_13> has been removed
+Register <ldin_d_0> equivalent to <rdin_d_0> has been removed
+Register <ldin_d_1> equivalent to <rdin_d_1> has been removed
+Register <ldin_d_2> equivalent to <rdin_d_2> has been removed
+Register <ldin_d_3> equivalent to <rdin_d_3> has been removed
+Register <ldin_d_4> equivalent to <rdin_d_4> has been removed
+Register <ldin_d_5> equivalent to <rdin_d_5> has been removed
+Register <ldin_d_6> equivalent to <rdin_d_6> has been removed
+Register <ldin_d_7> equivalent to <rdin_d_7> has been removed
+Register <ldin_d_8> equivalent to <rdin_d_8> has been removed
+Register <ldin_d_9> equivalent to <rdin_d_9> has been removed
+Register <ldin_d_10> equivalent to <rdin_d_10> has been removed
+Register <ldin_d_11> equivalent to <rdin_d_11> has been removed
+Register <ldin_d_12> equivalent to <rdin_d_12> has been removed
+WARNING:Xst:1710 - FF/Latch  <mclk_accum_0> (without init value) has a constant value of 0 in block <I2S_cntrl>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <mclk_accum_1> (without init value) has a constant value of 0 in block <I2S_cntrl>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <mclk_accum_d_0> (without init value) has a constant value of 0 in block <I2S_cntrl>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <mclk_accum_d_1> (without init value) has a constant value of 0 in block <I2S_cntrl>.
+
+Optimizing unit <top_level> ...
+
+Optimizing unit <uart> ...
+
+Optimizing unit <sync_fifo> ...
+
+Optimizing unit <I2S_cntrl> ...
+
+Optimizing unit <test_osc> ...
+
+Optimizing unit <midi_decoder> ...
+Loading device for application Rf_Device from file '3s200.nph' in environment C:/Xilinx.
+
+Mapping all equations...
+WARNING:Xst:1293 - FF/Latch  <uart1/txfifo/wr_ptr_3> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/wr_ptr_0> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/ff_d> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/ef_d> (without init value) has a constant value of 1 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/wr_ptr_4> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/_n0010_5> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/_n0010_7> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/_n0010_6> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/_n0010_0> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/_n0010_1> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/_n0010_2> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/_n0010_3> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/_n0010_4> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_d_9> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_8> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_9> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_7> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_11> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_13> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_d_10> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_d_11> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_d_7> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_d_12> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_d_8> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_d_13> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_10> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <midi_decoder1/param_val_12> is unconnected in block <top_level>.
+WARNING:Xst:1710 - FF/Latch  <uart1/tx_data_1> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_data_2> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_data_3> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_data_4> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_data_5> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_data_6> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_data_7> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_state_1> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_data_0> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_state_2> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_state_0> has a constant value of 1 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/rd_ptr_0> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/rd_ptr_3> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/rd_ptr_4> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_rd> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/txfifo/wr_ptr_1> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1293 - FF/Latch  <uart1/tx_bit_2> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx> (without init value) has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_bit_0> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_bit_1> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <uart1/tx_state_3> has a constant value of 0 in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_1> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/rd_ptr_1> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/wr_ptr_2> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_8> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_9> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_6> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/rd_ptr_2> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_3> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_2> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_10> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_12> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_14> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_11> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_5> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_4> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_7> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_13> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_15> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/txfifo/Mram_ram_inst_ramx_0> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/tx_accum_3> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/tx_accum_0> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/tx_accum_1> is unconnected in block <top_level>.
+WARNING:Xst:1291 - FF/Latch <uart1/tx_accum_2> is unconnected in block <top_level>.
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top_level, actual ratio is 10.
+FlipFlop uart1/rx_ce has been replicated 1 time(s)
+FlipFlop uart1/rx_state_1 has been replicated 1 time(s)
+FlipFlop uart1/rxfifo/ef_d has been replicated 2 time(s)
+FlipFlop uart1/rxfifo/rd_ptr_0 has been replicated 2 time(s)
+FlipFlop uart1/rxfifo/rd_ptr_1 has been replicated 2 time(s)
+FlipFlop uart1/rxfifo/rd_ptr_2 has been replicated 2 time(s)
+FlipFlop uart1/rxfifo/rd_ptr_3 has been replicated 2 time(s)
+FlipFlop uart1/rxfifo/rd_ptr_4 has been replicated 1 time(s)
+FlipFlop uart1/rxfifo/wr_ptr_0 has been replicated 2 time(s)
+FlipFlop uart1/rxfifo/wr_ptr_1 has been replicated 1 time(s)
+FlipFlop uart1/rxfifo/wr_ptr_2 has been replicated 1 time(s)
+FlipFlop uart1/rxfifo/wr_ptr_3 has been replicated 1 time(s)
+FlipFlop test_osc1/en has been replicated 1 time(s) to handle iob=true attribute.
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top_level.ngr
+Top Level Output File Name         : top_level
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 53
+
+Macro Statistics :
+# RAM                              : 3
+#      128x16-bit single-port block RAM: 1
+#      32x8-bit dual-port distributed RAM: 2
+# Registers                        : 115
+#      1-bit register              : 91
+#      16-bit register             : 8
+#      3-bit register              : 5
+#      4-bit register              : 1
+#      5-bit register              : 4
+#      6-bit register              : 1
+#      7-bit register              : 1
+#      8-bit register              : 2
+#      9-bit register              : 2
+# Counters                         : 1
+#      9-bit up counter            : 1
+# Multiplexers                     : 5
+#      1-bit 16-to-1 multiplexer   : 2
+#      1-bit 4-to-1 multiplexer    : 1
+#      1-bit 8-to-1 multiplexer    : 2
+# Adders/Subtractors               : 5
+#      16-bit adder                : 3
+#      9-bit adder                 : 2
+# Comparators                      : 22
+#      16-bit comparator greatequal: 1
+#      16-bit comparator greater   : 1
+#      16-bit comparator less      : 1
+#      16-bit comparator lessequal : 1
+#      3-bit comparator greatequal : 1
+#      4-bit comparator greater    : 1
+#      4-bit comparator less       : 1
+#      6-bit comparator equal      : 6
+#      6-bit comparator greatequal : 1
+#      6-bit comparator greater    : 1
+#      6-bit comparator less       : 2
+#      7-bit comparator equal      : 1
+#      9-bit comparator greater    : 2
+#      9-bit comparator lessequal  : 2
+
+Cell Usage :
+# BELS                             : 544
+#      GND                         : 1
+#      INV                         : 22
+#      LUT1                        : 29
+#      LUT1_L                      : 1
+#      LUT2                        : 28
+#      LUT2_D                      : 2
+#      LUT2_L                      : 38
+#      LUT3                        : 25
+#      LUT3_D                      : 8
+#      LUT3_L                      : 38
+#      LUT4                        : 70
+#      LUT4_D                      : 11
+#      LUT4_L                      : 81
+#      MUXCY                       : 102
+#      MUXF5                       : 24
+#      MUXF6                       : 2
+#      MUXF7                       : 1
+#      VCC                         : 1
+#      XORCY                       : 60
+# FlipFlops/Latches                : 239
+#      FD                          : 16
+#      FDE                         : 27
+#      FDR                         : 95
+#      FDRE                        : 64
+#      FDRS                        : 4
+#      FDRSE                       : 9
+#      FDS                         : 13
+#      FDSE                        : 3
+#      LD                          : 8
+# RAMS                             : 17
+#      RAM16X1D                    : 16
+#      RAMB16_S36                  : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 16
+#      IBUF                        : 2
+#      OBUF                        : 14
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200ft256-4 
+
+ Number of Slices:                     248  out of   1920    12%  
+ Number of Slice Flip Flops:           239  out of   3840     6%  
+ Number of 4 input LUTs:               347  out of   3840     9%  
+ Number of bonded IOBs:                 53  out of    173    30%  
+ Number of BRAMs:                        1  out of     12     8%  
+ Number of GCLKs:                        2  out of      8    25%  
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-------------------------------------------+-------------------------------+-------+
+Clock Signal                               | Clock buffer(FF name)         | Load  |
+-------------------------------------------+-------------------------------+-------+
+clk                                        | BUFGP                         | 216   |
+i2s_cntrl1/lrck:Q                          | BUFG                          | 32    |
+uart1/rxfifo/_n0055(uart1/rxfifo/_n00551:O)| NONE(*)(uart1/rxfifo/_n0010_3)| 8     |
+-------------------------------------------+-------------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 7.960ns (Maximum Frequency: 125.628MHz)
+   Minimum input arrival time before clock: 7.655ns
+   Maximum output required time after clock: 9.425ns
+   Maximum combinational path delay: 8.941ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 7.960ns (frequency: 125.628MHz)
+  Total number of paths / destination ports: 5944 / 451
+-------------------------------------------------------------------------
+Delay:               7.960ns (Levels of Logic = 6)
+  Source:            uart1/rxfifo/rd_ptr_0_1 (FF)
+  Destination:       midi_decoder1/byte_cnt_2 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: uart1/rxfifo/rd_ptr_0_1 to midi_decoder1/byte_cnt_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             4   0.720   0.917  uart1/rxfifo/rd_ptr_0_1 (uart1/rxfifo/rd_ptr_0_1)
+     RAM16X1D:DPRA0->DPO    6   0.551   1.342  uart1/rxfifo/Mram_ram_inst_ramx_6 (uart1/rxfifo/Mram_ram__net15)
+     LUT3_L:I0->LO         1   0.551   0.000  midi_decoder1/_n0033_SW0_F (N605)
+     MUXF5:I0->O           4   0.360   0.985  midi_decoder1/_n0033_SW0 (N84)
+     LUT4_L:I2->LO         1   0.551   0.000  midi_decoder1/_n0033_G (N612)
+     MUXF5:I1->O           1   0.360   0.869  midi_decoder1/_n0033 (midi_decoder1/_n0033)
+     LUT4_L:I2->LO         1   0.551   0.000  midi_decoder1/_n0031<2>36 (midi_decoder1/_n0031<2>)
+     FD:D                      0.203          midi_decoder1/byte_cnt_2
+    ----------------------------------------
+    Total                      7.960ns (3.847ns logic, 4.113ns route)
+                                       (48.3% logic, 51.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'i2s_cntrl1/lrck:Q'
+  Clock period: 4.990ns (frequency: 200.401MHz)
+  Total number of paths / destination ports: 272 / 32
+-------------------------------------------------------------------------
+Delay:               4.990ns (Levels of Logic = 17)
+  Source:            test_osc1/phase_0 (FF)
+  Destination:       test_osc1/phase_15 (FF)
+  Source Clock:      i2s_cntrl1/lrck:Q rising
+  Destination Clock: i2s_cntrl1/lrck:Q rising
+
+  Data Path: test_osc1/phase_0 to test_osc1/phase_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.720   1.216  test_osc1/phase_0 (test_osc1/phase_0)
+     LUT2:I0->O            2   0.551   0.000  test_osc1/test_osc_phase__n0000<0>lut (test_osc1/N9)
+     MUXCY:S->O            1   0.500   0.000  test_osc1/test_osc_phase__n0000<0>cy (test_osc1/test_osc_phase__n0000<0>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<1>cy (test_osc1/test_osc_phase__n0000<1>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<2>cy (test_osc1/test_osc_phase__n0000<2>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<3>cy (test_osc1/test_osc_phase__n0000<3>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<4>cy (test_osc1/test_osc_phase__n0000<4>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<5>cy (test_osc1/test_osc_phase__n0000<5>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<6>cy (test_osc1/test_osc_phase__n0000<6>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<7>cy (test_osc1/test_osc_phase__n0000<7>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<8>cy (test_osc1/test_osc_phase__n0000<8>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<9>cy (test_osc1/test_osc_phase__n0000<9>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<10>cy (test_osc1/test_osc_phase__n0000<10>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<11>cy (test_osc1/test_osc_phase__n0000<11>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<12>cy (test_osc1/test_osc_phase__n0000<12>_cyo)
+     MUXCY:CI->O           1   0.064   0.000  test_osc1/test_osc_phase__n0000<13>cy (test_osc1/test_osc_phase__n0000<13>_cyo)
+     MUXCY:CI->O           0   0.064   0.000  test_osc1/test_osc_phase__n0000<14>cy (test_osc1/test_osc_phase__n0000<14>_cyo)
+     XORCY:CI->O           1   0.904   0.000  test_osc1/test_osc_phase__n0000<15>_xor (test_osc1/phase__n0000<15>)
+     FDE:D                     0.203          test_osc1/phase_15
+    ----------------------------------------
+    Total                      4.990ns (3.774ns logic, 1.216ns route)
+                                       (75.6% logic, 24.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 196 / 188
+-------------------------------------------------------------------------
+Offset:              7.655ns (Levels of Logic = 4)
+  Source:            btn<0> (PAD)
+  Destination:       midi_decoder1/recv_state_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: btn<0> to midi_decoder1/recv_state_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           149   0.821   2.718  btn_0_IBUF (btn_0_IBUF)
+     LUT4:I1->O            1   0.551   0.827  midi_decoder1/_n0010<0>77_SW0 (N523)
+     LUT4_L:I3->LO         1   0.551   0.000  midi_decoder1/_n0010<0>84_F (N575)
+     MUXF5:I0->O           1   0.360   0.801  midi_decoder1/_n0010<0>84 (CHOICE3857)
+     FDS:S                     1.026          midi_decoder1/recv_state_0
+    ----------------------------------------
+    Total                      7.655ns (3.309ns logic, 4.346ns route)
+                                       (43.2% logic, 56.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 6 / 6
+-------------------------------------------------------------------------
+Offset:              9.425ns (Levels of Logic = 2)
+  Source:            i2s_cntrl1/lrck (FF)
+  Destination:       dac_lrck (PAD)
+  Source Clock:      clk rising
+
+  Data Path: i2s_cntrl1/lrck to dac_lrck
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             1   0.720   0.801  i2s_cntrl1/lrck (i2s_cntrl1/lrck1)
+     BUFG:I->O            33   0.401   1.859  i2s_cntrl1/lrck_BUFG (i2s_cntrl1/lrck)
+     OBUF:I->O                 5.644          dac_lrck_OBUF (dac_lrck)
+    ----------------------------------------
+    Total                      9.425ns (6.765ns logic, 2.660ns route)
+                                       (71.8% logic, 28.2% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Delay:               8.941ns (Levels of Logic = 3)
+  Source:            midi_rx (PAD)
+  Destination:       led<0> (PAD)
+
+  Data Path: midi_rx to led<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             9   0.821   1.124  midi_rx_IBUF (midi_thru_OBUF)
+     INV:I->O              1   0.551   0.801  _n00071_INV_0 (led_0_OBUF)
+     OBUF:I->O                 5.644          led_0_OBUF (led<0>)
+    ----------------------------------------
+    Total                      8.941ns (7.016ns logic, 1.925ns route)
+                                       (78.5% logic, 21.5% route)
+
+=========================================================================
+CPU : 49.48 / 51.10 s | Elapsed : 50.00 / 51.00 s
+ 
+--> 
+
+Total memory usage is 103136 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  115 (   0 filtered)
+Number of infos    :   11 (   0 filtered)
+

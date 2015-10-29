@@ -1,0 +1,3 @@
+set ADucfFile {top_level.ucf}
+set ADbmmFile {}
+set ADcdcFile {}

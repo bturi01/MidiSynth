@@ -1,0 +1,86 @@
+iMPACT Version: H.38
+iMPACT log file started on 2015/10/28 16:53:58
+// *** BATCH CMD : setPreference -pref UserLevel:NOVICE
+// *** BATCH CMD : setPreference -pref MessageLevel:DETAILED
+// *** BATCH CMD : setPreference -pref ConcurrentMode:FALSE
+// *** BATCH CMD : setPreference -pref UseHighz:FALSE
+// *** BATCH CMD : setPreference -pref ConfigOnFailure:STOP
+// *** BATCH CMD : setPreference -pref StartupCLock:AUTO_CORRECTION
+// *** BATCH CMD : setPreference -pref AutoSignature:FALSE
+// *** BATCH CMD : setPreference -pref KeepSVF:FALSE
+// *** BATCH CMD : setPreference -pref svfUseTime:FALSE
+// *** BATCH CMD : setPreference -pref UserLevel:NOVICE
+// *** BATCH CMD : setPreference -pref MessageLevel:DETAILED
+// *** BATCH CMD : setPreference -pref ConcurrentMode:FALSE
+// *** BATCH CMD : setPreference -pref UseHighz:FALSE
+// *** BATCH CMD : setPreference -pref ConfigOnFailure:STOP
+// *** BATCH CMD : setPreference -pref StartupCLock:AUTO_CORRECTION
+// *** BATCH CMD : setPreference -pref AutoSignature:FALSE
+// *** BATCH CMD : setPreference -pref KeepSVF:FALSE
+// *** BATCH CMD : setPreference -pref svfUseTime:FALSE
+// *** BATCH CMD : setMode -bs
+Loading cdf file c:\midisynth/MidiSynth.ipf...
+// *** BATCH CMD : setPreference -pref UserLevel:Novice
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : setMode -mpm
+// *** BATCH CMD : setMode -cf
+// *** BATCH CMD : setMode -dtconfig
+// *** BATCH CMD : setMode -bsfile
+// *** BATCH CMD : setMode -sm
+// *** BATCH CMD : setMode -ss
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : addDevice -position 1 -file "C:\MidiSynth\top_level.bit"
+'1': Loading file 'C:\MidiSynth\top_level.bit' ...
+done.
+INFO:iMPACT:1777 - 
+Reading C:/Xilinx/spartan3/data/xc3s200.bsd...
+Reading C:/Xilinx/spartan3/data/xc3s200.bsd...
+WARNING:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream stored in memory,
+but the original bitstream file remains unchanged.
+but the original bitstream file remains unchanged.
+INFO:iMPACT:501 - '1': Added Device xc3s200 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+// *** BATCH CMD : 
+// *** BATCH CMD : addDevice -position 2 -part "xcf02s"
+INFO:iMPACT:1777 - 
+Reading C:/Xilinx/xcf/data/xcf02s.bsd...
+Reading C:/Xilinx/xcf/data/xcf02s.bsd...
+INFO:iMPACT:501 - '2': Added Device xcf02s successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+// *** BATCH CMD : setCable -port lpt1
+Connecting to cable (Parallel Port - LPT1).
+Checking cable driver.
+ Driver windrvr6.sys version = 6.2.2.2. LPT base address = 0378h.
+ ECP base address = 0778h.
+Cable connection established.
+// *** BATCH CMD : setMode -bs
+Finish loading cdf file c:\midisynth/MidiSynth.ipf.
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : setMode -ss
+// *** BATCH CMD : setMode -sm
+// *** BATCH CMD : setMode -bsfile
+// *** BATCH CMD : setMode -dtconfig
+// *** BATCH CMD : setMode -cf
+GUI --- Read System ACE CF Mode...
+// *** BATCH CMD : setMode -mpm
+GUI --- Read System ACE MPM Mode...
+// *** BATCH CMD : setMode -pff
+GUI --- Read PROM Formatter Mode...
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : setAttribute -position 1 -attr configFileName -value "C:\MidiSynth\top_level.bit"
+'1': Loading file 'C:\MidiSynth\top_level.bit' ...
+done.
+INFO:iMPACT:501 - '1': Added Device xc3s200 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+// *** BATCH CMD : Program -p 1 
+PROGRESS_START - Starting Operation.
+Validating chain...
+Boundary-scan chain validated successfully.
+'1':Programming  device...
+'1': Reading status register contents...
+CRC error                                         :     

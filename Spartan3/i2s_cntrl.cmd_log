@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn __projnav/i2s_cntrl.xst -ofn i2s_cntrl.syr
+xst -intstyle ise -ifn __projnav/i2s_cntrl.xst -ofn i2s_cntrl.syr
+ngdbuild -intstyle ise -dd "c:\midisynth/_ngo" -i  -p xc3s200-ft256-4 i2s_cntrl.ngc i2s_cntrl.ngd
+map -intstyle ise -p xc3s200-ft256-4 -cm area -pr b -k 4 -c 100 -o i2s_cntrl_map.ncd i2s_cntrl.ngd i2s_cntrl.pcf
+par -w -intstyle ise -ol std -t 1 i2s_cntrl_map.ncd i2s_cntrl.ncd i2s_cntrl.pcf
+trce -intstyle ise -e 3 -l 3 -s 4 -xml i2s_cntrl i2s_cntrl.ncd -o i2s_cntrl.twr i2s_cntrl.pcf
+bitgen -intstyle ise -f i2s_cntrl.ut i2s_cntrl.ncd
