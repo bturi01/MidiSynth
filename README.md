@@ -11,4 +11,4 @@ A variety of sources can provide MIDI data.
 Used:  
   -Raspberry Pi GPIO Pins connected directly to FPGA Expansion Connectors  
   -MIDI Keyboard Controller:  
-      Keyboard -> MIDI Cable -> USB -> | FPGA | -> USB -> PS2 | FPGA |
+          Keyboard -> MIDI Cable -> USB -> | FPGA | -> USB -> PS2 | FPGA |
