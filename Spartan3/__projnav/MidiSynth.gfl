@@ -1275,3 +1275,306 @@ top_level.dst_compressed
 top_level.mpm
 _impact.cmd
 _impact.log
+# xst flow : RunXST
+top_level_summary.html
+# xst flow : RunXST
+top_level.syr
+top_level.prj
+top_level.sprj
+top_level.ana
+top_level.stx
+top_level.cmd_log
+i2s_cntrl.ngc
+top_level.ngc
+i2s_cntrl.ngr
+top_level.ngr
+# Implmentation : Translate
+__projnav/ednTOngd_tcl.rsp
+"c:\midisynth/_ngo"
+top_level.ngd
+top_level_ngdbuild.nav
+top_level.bld
+top_level.ucf.untf
+top_level.cmd_log
+# Implementation : Map
+top_level_summary.html
+# Implementation : Map
+top_level_map.ncd
+top_level.ngm
+top_level.pcf
+top_level.nc1
+top_level.mrp
+top_level_map.mrp
+top_level.mdf
+top_level.cmd_log
+MAP_NO_GUIDE_FILE_CPF "top_level"
+top_level_map.ngm
+# Implmentation : Post-Place & Route Timing
+__projnav/ncdTOtwr_tcl.rsp
+top_level.twr
+top_level.twx
+top_level.tsi
+top_level.cmd_log
+# Implementation : Place & Route
+top_level_summary.html
+# Implmentation : Place & Route
+__projnav/nc1TOncd_tcl.rsp
+top_level.ncd
+top_level.par
+top_level.pad
+top_level_pad.txt
+top_level_pad.csv
+top_level.pad_txt
+top_level.dly
+reportgen.log
+top_level.xpi
+top_level.grf
+top_level.itr
+top_level_last_par.ncd
+top_level.placed_ncd_tracker
+top_level.routed_ncd_tracker
+top_level.cmd_log
+PAR_NO_GUIDE_FILE_CPF "top_level"
+# Generate Programming File
+__projnav/top_level_ncdTOut_tcl.rsp
+__projnav/bitgen.rsp
+bitgen.ut
+top_level.ut
+# Generate Programming File
+top_level.bgn
+top_level.rbt
+top_level.ll
+top_level.msk
+top_level.drc
+top_level.nky
+top_level.bit
+top_level.bin
+top_level.isc
+top_level.cmd_log
+# Configure Device (iMPACT)
+top_level.prm
+top_level.isc
+top_level.svf
+xilinx.sys
+top_level.mcs
+top_level.exo
+top_level.hex
+top_level.tek
+top_level.dst
+top_level.dst_compressed
+top_level.mpm
+_impact.cmd
+_impact.log
+# Bencher : Creating project file
+testbench_bencher.prj
+# ProjNav -> New Source -> TBW
+testbench.vhw
+testbench.ano
+testbench.tfw
+testbench.ant
+# Bencher : Creating project file
+testbench_bencher.prj
+# ProjNav -> New Source -> TBW
+testbench.vhw
+testbench.ano
+testbench.tfw
+testbench.ant
+# XST (Creating Lso File) : 
+top_level.lso
+# xst flow : RunXST
+top_level_summary.html
+# xst flow : RunXST
+top_level.syr
+top_level.prj
+top_level.sprj
+top_level.ana
+top_level.stx
+top_level.cmd_log
+i2s_cntrl.ngc
+top_level.ngc
+i2s_cntrl.ngr
+top_level.ngr
+# XST (Creating Lso File) : 
+top_level.lso
+# xst flow : RunXST
+top_level_summary.html
+# xst flow : RunXST
+top_level.syr
+top_level.prj
+top_level.sprj
+top_level.ana
+top_level.stx
+top_level.cmd_log
+i2s_cntrl.ngc
+top_level.ngc
+i2s_cntrl.ngr
+top_level.ngr
+# Implmentation : Translate
+__projnav/ednTOngd_tcl.rsp
+"c:\midisynth/_ngo"
+top_level.ngd
+top_level_ngdbuild.nav
+top_level.bld
+top_level.ucf.untf
+top_level.cmd_log
+# Implementation : Map
+top_level_summary.html
+# Implementation : Map
+top_level_map.ncd
+top_level.ngm
+top_level.pcf
+top_level.nc1
+top_level.mrp
+top_level_map.mrp
+top_level.mdf
+top_level.cmd_log
+MAP_NO_GUIDE_FILE_CPF "top_level"
+top_level_map.ngm
+# Implmentation : Post-Place & Route Timing
+__projnav/ncdTOtwr_tcl.rsp
+top_level.twr
+top_level.twx
+top_level.tsi
+top_level.cmd_log
+# Implementation : Place & Route
+top_level_summary.html
+# Implmentation : Place & Route
+__projnav/nc1TOncd_tcl.rsp
+top_level.ncd
+top_level.par
+top_level.pad
+top_level_pad.txt
+top_level_pad.csv
+top_level.pad_txt
+top_level.dly
+reportgen.log
+top_level.xpi
+top_level.grf
+top_level.itr
+top_level_last_par.ncd
+top_level.placed_ncd_tracker
+top_level.routed_ncd_tracker
+top_level.cmd_log
+PAR_NO_GUIDE_FILE_CPF "top_level"
+# Generate Programming File
+__projnav/top_level_ncdTOut_tcl.rsp
+__projnav/bitgen.rsp
+bitgen.ut
+top_level.ut
+# Generate Programming File
+top_level.bgn
+top_level.rbt
+top_level.ll
+top_level.msk
+top_level.drc
+top_level.nky
+top_level.bit
+top_level.bin
+top_level.isc
+top_level.cmd_log
+# Configure Device (iMPACT)
+top_level.prm
+top_level.isc
+top_level.svf
+xilinx.sys
+top_level.mcs
+top_level.exo
+top_level.hex
+top_level.tek
+top_level.dst
+top_level.dst_compressed
+top_level.mpm
+_impact.cmd
+_impact.log
+# XST (Creating Lso File) : 
+top_level.lso
+# xst flow : RunXST
+top_level_summary.html
+# xst flow : RunXST
+top_level.syr
+top_level.prj
+top_level.sprj
+top_level.ana
+top_level.stx
+top_level.cmd_log
+i2s_cntrl.ngc
+top_level.ngc
+i2s_cntrl.ngr
+top_level.ngr
+# Implmentation : Translate
+__projnav/ednTOngd_tcl.rsp
+"c:\midisynth/_ngo"
+top_level.ngd
+top_level_ngdbuild.nav
+top_level.bld
+top_level.ucf.untf
+top_level.cmd_log
+# Implementation : Map
+top_level_summary.html
+# Implementation : Map
+top_level_map.ncd
+top_level.ngm
+top_level.pcf
+top_level.nc1
+top_level.mrp
+top_level_map.mrp
+top_level.mdf
+top_level.cmd_log
+MAP_NO_GUIDE_FILE_CPF "top_level"
+top_level_map.ngm
+# Implmentation : Post-Place & Route Timing
+__projnav/ncdTOtwr_tcl.rsp
+top_level.twr
+top_level.twx
+top_level.tsi
+top_level.cmd_log
+# Implementation : Place & Route
+top_level_summary.html
+# Implmentation : Place & Route
+__projnav/nc1TOncd_tcl.rsp
+top_level.ncd
+top_level.par
+top_level.pad
+top_level_pad.txt
+top_level_pad.csv
+top_level.pad_txt
+top_level.dly
+reportgen.log
+top_level.xpi
+top_level.grf
+top_level.itr
+top_level_last_par.ncd
+top_level.placed_ncd_tracker
+top_level.routed_ncd_tracker
+top_level.cmd_log
+PAR_NO_GUIDE_FILE_CPF "top_level"
+# Generate Programming File
+__projnav/top_level_ncdTOut_tcl.rsp
+__projnav/bitgen.rsp
+bitgen.ut
+top_level.ut
+# Generate Programming File
+top_level.bgn
+top_level.rbt
+top_level.ll
+top_level.msk
+top_level.drc
+top_level.nky
+top_level.bit
+top_level.bin
+top_level.isc
+top_level.cmd_log
+# Configure Device (iMPACT)
+top_level.prm
+top_level.isc
+top_level.svf
+xilinx.sys
+top_level.mcs
+top_level.exo
+top_level.hex
+top_level.tek
+top_level.dst
+top_level.dst_compressed
+top_level.mpm
+_impact.cmd
+_impact.log

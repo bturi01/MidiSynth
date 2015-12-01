@@ -1,10 +1,10 @@
 Release 7.1i - xst H.38
 Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to __projnav
-CPU : 0.00 / 1.47 s | Elapsed : 0.00 / 1.00 s
+CPU : 0.00 / 0.57 s | Elapsed : 0.00 / 0.00 s
  
 --> Parameter xsthdpdir set to ./xst
-CPU : 0.00 / 1.47 s | Elapsed : 0.00 / 1.00 s
+CPU : 0.00 / 0.57 s | Elapsed : 0.00 / 0.00 s
  
 --> Reading design: top_level.prj
 
@@ -795,7 +795,7 @@ Delay:               8.941ns (Levels of Logic = 3)
                                        (78.5% logic, 21.5% route)
 
 =========================================================================
-CPU : 49.48 / 51.10 s | Elapsed : 50.00 / 51.00 s
+CPU : 49.93 / 50.57 s | Elapsed : 49.00 / 50.00 s
  
 --> 
 

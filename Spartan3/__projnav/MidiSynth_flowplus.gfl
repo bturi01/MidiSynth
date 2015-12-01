@@ -398,3 +398,25 @@ __projnav/top_level.xst
 top_level.prj
 __projnav/top_level.xst
 ./xst
+# xst flow : RunXST
+top_level.prj
+__projnav/top_level.xst
+./xst
+# XST flow : Creating project file
+top_level.prj
+# xst flow : RunXST
+top_level.prj
+__projnav/top_level.xst
+./xst
+# XST flow : Creating project file
+top_level.prj
+# xst flow : RunXST
+top_level.prj
+__projnav/top_level.xst
+./xst
+# XST flow : Creating project file
+top_level.prj
+# xst flow : RunXST
+top_level.prj
+__projnav/top_level.xst
+./xst

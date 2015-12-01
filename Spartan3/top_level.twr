@@ -31,8 +31,8 @@ Setup/Hold to clock clk
             |  Setup to  |  Hold to   |                  |  Clock |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) |  Phase |
 ------------+------------+------------+------------------+--------+
-btn<0>      |    8.371(R)|    0.599(R)|clk_BUFGP         |   0.000|
-midi_rx     |    9.240(R)|   -3.654(R)|clk_BUFGP         |   0.000|
+btn<0>      |    7.969(R)|    0.735(R)|clk_BUFGP         |   0.000|
+midi_rx     |    8.315(R)|   -2.535(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -40,11 +40,11 @@ Clock clk to Pad
             | clk (edge) |                  |  Clock |
 Destination | to PAD     |Internal Clock(s) |  Phase |
 ------------+------------+------------------+--------+
-dac_lrck    |   13.239(R)|clk_BUFGP         |   0.000|
+dac_lrck    |   12.308(R)|clk_BUFGP         |   0.000|
 dac_mclk    |    7.359(R)|clk_BUFGP         |   0.000|
 dac_sclk    |    7.360(R)|clk_BUFGP         |   0.000|
 dac_sdout   |    7.360(R)|clk_BUFGP         |   0.000|
-led<2>      |   10.705(R)|clk_BUFGP         |   0.000|
+led<2>      |   10.465(R)|clk_BUFGP         |   0.000|
 led<3>      |    7.359(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
@@ -53,18 +53,18 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   10.829|         |         |         |
+clk            |   11.273|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-midi_rx        |led<0>         |    7.108|
-midi_rx        |midi_thru      |   10.877|
+midi_rx        |led<0>         |    7.802|
+midi_rx        |midi_thru      |   13.024|
 ---------------+---------------+---------+
 
-Analysis completed Wed Oct 28 16:49:39 2015
+Analysis completed Wed Nov 18 15:33:02 2015
 --------------------------------------------------------------------------------
 
 

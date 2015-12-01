@@ -1,7 +1,7 @@
 Release 7.1i par H.38
 Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
 
-PAST111-07::  Wed Oct 28 16:49:25 2015
+PAST111-07::  Wed Nov 18 15:32:46 2015
 
 par -w -intstyle ise -ol std -t 1 top_level_map.ncd top_level.ncd top_level.pcf
 
@@ -53,33 +53,33 @@ Phase 3.2
 Phase 3.2 (Checksum:1c9c37d) REAL time: 3 secs 
 
 Phase 4.8
-...................................................
-Phase 4.8 (Checksum:9c053f) REAL time: 3 secs 
+..............................................................
+Phase 4.8 (Checksum:9bdbd7) REAL time: 4 secs 
 
 Phase 5.5
-Phase 5.5 (Checksum:2faf07b) REAL time: 3 secs 
+Phase 5.5 (Checksum:2faf07b) REAL time: 4 secs 
 
 Phase 6.18
-Phase 6.18 (Checksum:39386fa) REAL time: 4 secs 
+Phase 6.18 (Checksum:39386fa) REAL time: 5 secs 
 
 Phase 7.5
-Phase 7.5 (Checksum:42c1d79) REAL time: 4 secs 
+Phase 7.5 (Checksum:42c1d79) REAL time: 5 secs 
 
 Writing design to file top_level.ncd
 
 
-Total REAL time to Placer completion: 4 secs 
-Total CPU time to Placer completion: 3 secs 
+Total REAL time to Placer completion: 5 secs 
+Total CPU time to Placer completion: 4 secs 
 
 Starting Router
 
-Phase 1: 1779 unrouted;       REAL time: 4 secs 
+Phase 1: 1779 unrouted;       REAL time: 6 secs 
 
-Phase 2: 1591 unrouted;       REAL time: 4 secs 
+Phase 2: 1591 unrouted;       REAL time: 6 secs 
 
-Phase 3: 588 unrouted;       REAL time: 5 secs 
+Phase 3: 605 unrouted;       REAL time: 6 secs 
 
-Phase 4: 0 unrouted;       REAL time: 6 secs 
+Phase 4: 0 unrouted;       REAL time: 7 secs 
 
 
 WARNING:CLK Net:uart1/rxfifo/_n0055
@@ -90,7 +90,7 @@ WARNING:CLK Net:i2s_cntrl1/lrck
 may have excessive skew because 1 NON-CLK pins
 failed to route using a CLK template.
 
-Total REAL time to Router completion: 6 secs 
+Total REAL time to Router completion: 7 secs 
 Total CPU time to Router completion: 5 secs 
 
 Generating "PAR" statistics.
@@ -102,11 +102,11 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|     i2s_cntrl1/lrck |      BUFGMUX5| No   |   17 |  0.002     |  1.014      |
+|     i2s_cntrl1/lrck |      BUFGMUX5| No   |   17 |  0.001     |  1.012      |
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP |      BUFGMUX0| No   |  153 |  0.041     |  1.051      |
+|           clk_BUFGP |      BUFGMUX0| No   |  153 |  0.040     |  1.051      |
 +---------------------+--------------+------+------+------------+-------------+
-| uart1/rxfifo/_n0055 |         Local|      |    4 |  0.689     |  1.708      |
+| uart1/rxfifo/_n0055 |         Local|      |    4 |  0.187     |  0.539      |
 +---------------------+--------------+------+------+------------+-------------+
 
 INFO:Par:340 - 
@@ -119,7 +119,7 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 7 secs 
+Total REAL time to PAR completion: 9 secs 
 Total CPU time to PAR completion: 6 secs 
 
 Peak Memory Usage:  76 MB
