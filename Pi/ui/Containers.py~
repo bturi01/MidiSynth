@@ -126,7 +126,7 @@ class MainWindow(Gtk.Notebook):
         elif (name == "distortionParameter1"):
             self.sendDataDistortion(self.distortionSwitch.get_active(), self.distortionParameter1.get_value())
         else:
-            self.sendDataReverb(self.reverbSwitch.get_active()), self.reverbParameter1.get_value(), self.reverbParameter2.get_value(), self.reverbParameter3.get_value(), self.reverbParameter4.get_value()
+            self.sendDataReverb(self.reverbSwitch.get_active()), self.reverbParameter1.get_value(), self.reverbParameter2.get_value(), self.reverbParameter3.get_value(), self.reverbParameter4.get_value())
 
 
 
