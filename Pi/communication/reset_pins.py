@@ -1,0 +1,38 @@
+import RPi.GPIO as GPIO
+from Gpio import Pins
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(True)
+
+GPIO.setup(Pins.DATA_READY, GPIO.OUT)
+GPIO.setup(Pins.DATA_RCVD, GPIO.OUT)
+GPIO.setup(Pins.DATA_0, GPIO.OUT)
+GPIO.setup(Pins.DATA_1, GPIO.OUT)
+GPIO.setup(Pins.DATA_2, GPIO.OUT)
+GPIO.setup(Pins.DATA_3, GPIO.OUT)
+GPIO.setup(Pins.DATA_4, GPIO.OUT)
+GPIO.setup(Pins.DATA_5, GPIO.OUT)
+GPIO.setup(Pins.DATA_6, GPIO.OUT)
+GPIO.setup(Pins.DATA_7, GPIO.OUT)
+
+GPIO.output(Pins.DATA_READY, 0)
+GPIO.output(Pins.DATA_RCVD, 0)
+GPIO.output(Pins.DATA_0, 0)
+GPIO.output(Pins.DATA_1, 0)
+GPIO.output(Pins.DATA_2, 0)
+GPIO.output(Pins.DATA_3, 0)
+GPIO.output(Pins.DATA_4, 0)
+GPIO.output(Pins.DATA_5, 0)
+GPIO.output(Pins.DATA_6, 0)
+GPIO.output(Pins.DATA_7, 0)
+
+print(GPIO.input(Pins.DATA_READY))
+print(GPIO.input(Pins.DATA_RCVD))
+print(GPIO.input(Pins.DATA_0))
+print(GPIO.input(Pins.DATA_1))
+print(GPIO.input(Pins.DATA_2))
+print(GPIO.input(Pins.DATA_3))
+print(GPIO.input(Pins.DATA_4))
+print(GPIO.input(Pins.DATA_5))
+print(GPIO.input(Pins.DATA_6))
+print(GPIO.input(Pins.DATA_7))
